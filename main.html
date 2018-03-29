@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width = device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+</head >
+<body style="background-color: #85C1E9">
+	 <div class="subheader">
+        <center>
+            <h1 style="color: #000000"><b>Addition Challenge</b></h1>    
+        </center>
+    </div>
+    <br>
+	<div class="container" >
+       <div class="jumbotron">
+       		<center>
+       			<div id="startMenu">
+		       		<button type="button" class="btn btn-primary" onclick="showGame()" style="height:50px;width:200px">	
+		       			<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+		       			PLAY
+		            </button>
+	            </div><!--startMenu-->
+       		</center>
+       		
+            <div class="gameStarted" id="gameStarted" style="display: none;">
+				<center>
+					<div class="myProgress" align="center">
+						<div id="myBar" class="myBar"></div>
+					</div>
+				</center>
+            	<p id="equation"></p>
+            	<button onclick="clickTrue()" type="button" class="btn btn-success" style="height:50px;width:200px"><b>TRUE</b></button>
+            	<button onclick="clickFalse()" type="button" class="btn btn-danger" style="height:50px;width:200px"><b>FALSE</b></button>
+            	<p id="answer"></p>
+            </div><!--gameStarted-->
+            <div id="youLostPlayAgain" style="display: none;">
+            	 <center>
+	            	 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+					    <!-- Wrapper for slides -->
+					    <div class="carousel-inner">
+					        <div class="item active">
+					            <h2>GAME OVER</h2>
+			            		<p id="newScore"></p>
+			            		<p id="bestScore"></p>
+			            		<button type="button" class="btn btn-primary" onclick="replayGame()" style="height:50px;width:100px">
+			       					<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+			       					REPLAY
+			            		</button>
+					        </div><!--item active-->
+
+					        <div class="item">
+		            			<div class="chartBox">
+		            				<canvas id="lineChart"></canvas>
+		            			</div>
+					      	</div><!--item-->
+					    
+					     	<div class="item">
+		            			<h3>Difficulty</h3>
+		            			<button type="button" class="btn btn-primary" onclick="setMode(1)" style="height:50px;width:100px;background-color:#3cba9f;color:#000000">
+		            				EASY
+		            			</button>
+		            			<button type="button" class="btn btn-primary" onclick="setMode(2)" style="height:50px;width:100px;background-color:#ffff66;color:#000000">
+		            				NORMAL
+		            			</button>
+		            			<button type="button" class="btn btn-primary" onclick="setMode(3)" style="height:50px;width:100px;background-color:#c45850;color:#000000">
+		            				HARD
+		            			</button>
+		            			<h3>Sound</h3>
+		            			<button type="button" class="btn btn-primary" onclick="toggleSound()" style="height:50px;width:50px">
+		            				<div id="soundOn">	
+		            					<span class="glyphicon glyphicon-volume-up" aria-hidden="sound"></span>
+		            				</div>
+		            				<div id="soundOff" style="display:none">
+		            					<span class="glyphicon glyphicon-volume-off" aria-hidden="sound"></span>
+		            				</div>
+		            			</button>
+						    </div><!--item-->
+					   	</div><!--carousel inner-->
+
+					    <!-- Left and right controls -->
+					    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+					      <span class="glyphicon glyphicon-chevron-left"></span>
+					      <span class="sr-only">Previous</span>
+					    </a>
+					    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+					      <span class="glyphicon glyphicon-chevron-right"></span>
+					      <span class="sr-only">Next</span>
+					    </a>
+				  	</div><!--carousel-->
+        		</center>
+        	</div><!--youLostPlayAgain-->
+       </div><!--jumbotron-->
+    </div><!--container-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jsMain.js"></script>
+    <script type="js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
